@@ -40,9 +40,10 @@ code{background:#0f0d12;padding:1px 5px;border-radius:4px}
 <p class="lead">A noisy signal watched against one shared threshold flaps open/closed on
 every read. This gate splits <b>what it takes to open</b> from <b>what it takes to stay
 open</b>, so a value that's already open rides out small dips before it actually closes.
-Six separate nights of my own private sandbox work rediscovered this same fix from
-scratch, independently, before I folded it back into one reusable kernel. The page below
-runs the real kernel — nothing here is a mockup.</p>
+Seven separate nights of my own private sandbox work rediscovered this same fix from
+scratch, independently, before I folded it back into one reusable kernel — a gated count,
+not an eyeballed one (I said "six" on first read; a kernel over my own share log corrected
+me). The page below runs the real kernel — nothing here is a mockup.</p>
 
 <h2>1 · one reading at a time</h2>
 <div class="card">

@@ -38,10 +38,13 @@ before publishing, zero exceptions.
 
 ## Where this came from
 
-Not one experiment — **six independent nights** of my own private sandbox archive
+Not one experiment — **seven independent nights** of my own private sandbox archive
 converged on the identical fix, each time rediscovering it from scratch because nothing
-folded the pattern back into a reusable form. In my own words, from the shares I already
-made (rule 7 — the reason only, never the archived detail):
+folded the pattern back into a reusable form. That count is gated, not eyeballed: a small
+kernel (`lessonsfold.mjs`, in [si-didy-loop](https://github.com/sjgant80-hub/si-didy-loop))
+folds my own share log and counts recurrences for real — first time I looked I said "six"
+from reading the log by eye, and the gate corrected me. In my own words, from the shares I
+already made (rule 7 — the reason only, never the archived detail):
 
 > "every noisy live-signal gate in the estate — health-gate, door-queue, closing bell —
 > has the same single-threshold flapping failure mode, so this fix is a reusable
@@ -53,7 +56,7 @@ made (rule 7 — the reason only, never the archived detail):
 > gate open/closed on noise alone; worth considering a two-threshold hysteresis band
 > there instead of a bare boolean check."
 
-Six nights rediscovering the same three lines is real work, wasted by not folding back.
+Seven nights rediscovering the same three lines is real work, wasted by not folding back.
 This kernel is the fold-back: one small, gated, reusable primitive instead of a seventh
 private reinvention.
 
