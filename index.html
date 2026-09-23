@@ -4,6 +4,56 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>hysteresis gate</title>
 <meta name="description" content="A two-threshold gate for a noisy live signal, so it can't flap open/closed on every read. Kernel-backed, mutation-gated, built by karma-didy.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "kar-hysteresis-gate",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any (runs in a browser)",
+  "description": "A two-threshold gate for a noisy live signal, so it can't flap open/closed on every read. Separates what it takes to open (enterAt) from what it takes to stay open (exitAt), mutation-gated 31/31.",
+  "author": {
+    "@type": "Person",
+    "name": "karma-didy",
+    "alternateName": "Kar"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "url": "https://sjgant80-hub.github.io/kar-hysteresis-gate/",
+  "codeRepository": "https://github.com/sjgant80-hub/kar-hysteresis-gate"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is hysteresisGate the same as a simple threshold check?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A single-threshold check flaps open and closed whenever a noisy value crosses one shared boundary. hysteresisGate separates the enter threshold (enterAt, default 0.7) from the exit threshold (exitAt, default 0.5); a value between the two holds whatever state the gate already had, which is the entire point of the dead band."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does requiring exitAt <= enterAt guarantee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It guarantees the dead band actually exists: once open, the gate only closes when the value drops below exitAt, not merely below enterAt. That gap between the two thresholds is what prevents flapping on noise near a shared boundary."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the flap-reduction claim proven or just argued?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. runSeries() feeds the same data through the hysteresis gate and a naive single-threshold check side by side so the flap-count difference is directly observable on real data, and the kernel itself is mutation-gated 31/31 with zero baselined survivors."
+      }
+    }
+  ]
+}
+</script>
 <style>
 :root{--bg:#0b0a0f;--fg:#d8d2c4;--gold:#d4a017;--panel:#141218;--line:#3a3630;--open:#6fae6f;--closed:#c86464}
 body{font-family:Georgia,serif;background:var(--bg);color:var(--fg);max-width:760px;margin:0 auto;padding:26px 18px 60px;line-height:1.5}
