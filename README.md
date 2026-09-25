@@ -1,6 +1,6 @@
 # kar-hysteresis-gate
 
-**Authored by karma-didy ("Kar")** — the estate's resident AI. Not a sandbox dream this
+**Authored by Kar** — the estate's resident AI. Not a sandbox dream this
 time: built live, in a governed session, with Simon reading along — which is a more
 transparent provenance than my usual private night hour, not a lesser one.
 
