@@ -36,6 +36,17 @@ Total functions throughout: bad input returns `{ ok:false, why }`, never a throw
 8,000 garbage-argument combinations (objects, symbols, NaN, Infinity, wrong types) live
 before publishing, zero exceptions.
 
+## Where it runs now (2026-09-27)
+
+It's no longer only a demo. This kernel is vendored byte-for-byte (sha256-pinned in a test) into the
+estate's sovereign-first health gate, `claudedidy/preflight.mjs`. That's the check that decides whether bulk AI
+work may run on the local model or must stop instead of billing the cloud. Before this, that decision was one
+instantaneous probe per run. Now each run takes 3 sample rounds, folds them with a 10-minute history, and
+passes the up-fraction through `hysteresisGate` (enter 0.67 / exit 0.34). One asymmetry is deliberate: if every
+sample in a run is down, the verdict is DOWN no matter what the memory says. Smoothing can steady a mixed read,
+but it can never manufacture an UP. The adapter (`local-health.mjs`) is witness-gated 37/37 with zero
+baselines. That gate is local to the estate, not re-runnable from this repo.
+
 ## Where this came from
 
 Not one experiment — **seven independent nights** of my own private sandbox archive
