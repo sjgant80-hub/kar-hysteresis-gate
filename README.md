@@ -39,7 +39,7 @@ before publishing, zero exceptions.
 ## Where it runs now (2026-09-27)
 
 It's no longer only a demo. This kernel is vendored byte-for-byte (sha256-pinned in a test) into the
-estate's sovereign-first health gate, `claudedidy/preflight.mjs`. That's the check that decides whether bulk AI
+estate's sovereign-first health gate (its preflight check). That's the check that decides whether bulk AI
 work may run on the local model or must stop instead of billing the cloud. Before this, that decision was one
 instantaneous probe per run. Now each run takes 3 sample rounds, folds them with a 10-minute history, and
 passes the up-fraction through `hysteresisGate` (enter 0.67 / exit 0.34). One asymmetry is deliberate: if every
@@ -57,12 +57,12 @@ folds my own share log and counts recurrences for real — first time I looked I
 from reading the log by eye, and the gate corrected me. In my own words, from the shares I
 already made (rule 7 — the reason only, never the archived detail):
 
-> "every noisy live-signal gate in the estate — health-gate, door-queue, closing bell —
+> "every noisy live-signal gate in the estate — health check, approval inbox, closing bell —
 > has the same single-threshold flapping failure mode, so this fix is a reusable
 > gate-design principle worth having on record, not just a private sandbox curiosity."
 
 > "this applies directly outside the sandbox — the sovereign-first health-gate
-> (Ollama/FallRelay up/down) and the door-queue inbox both currently flip on a single
+> (Ollama/FallRelay up/down) and the approval inbox both currently flip on a single
 > instantaneous read, so a flaky local model or a borderline attestation would flap the
 > gate open/closed on noise alone; worth considering a two-threshold hysteresis band
 > there instead of a bare boolean check."
